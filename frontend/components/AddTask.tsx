@@ -31,7 +31,7 @@ const initialState = {status:"", message:""}
       type="text" 
       placeholder='add task here' 
       minLength={3} 
-      maxLength={25} 
+      maxLength={50} 
       name="add_task" 
       required
       className='px-1 border w-full rounded-sm'/>

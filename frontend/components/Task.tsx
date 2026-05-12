@@ -39,14 +39,14 @@ const Task = ({ task }: { task: Todo }) => {
   };
 
   return (
-    <tr key={task.id} className="border-b hover:bg-gray-50">
-      <td className="p-4">
-        <span className={`${task.is_completed ? 'line-through text-red-400' : 'text-gray-800'}`}>
+    <tr key={task.id} className="border-b transition-colors hover:bg-slate-50">
+      <td className="max-w-[260px] p-3 align-middle sm:max-w-none sm:p-4">
+        <span className={`block break-words text-sm leading-6 sm:text-base ${task.is_completed ? 'line-through text-red-400' : 'text-gray-800'}`}>
           {task.content}
         </span>
       </td>
 
-      <td className="p-4 flex justify-end items-center gap-3">
+      <td className="flex items-center justify-end gap-2 p-3 align-middle sm:gap-3 sm:p-4">
         
         {/* ================== Checkbox ================== */}
         <ToolTip tooltip_content="Mark as completed">
@@ -55,7 +55,7 @@ const Task = ({ task }: { task: Todo }) => {
             checked={task.is_completed}
             disabled={statusPending} 
             onChange={handleStatus}
-            className="form-checkbox h-4 w-4 text-teal-600 rounded-sm 
+            className="form-checkbox h-5 w-5 rounded-sm text-teal-600 sm:h-4 sm:w-4 
                        focus:ring-teal-500 border-gray-300 
                        cursor-pointer disabled:cursor-not-allowed 
                        disabled:opacity-60"
@@ -67,7 +67,7 @@ const Task = ({ task }: { task: Todo }) => {
           <Modal title="Edit Task" edit_task={true} task={task}>
             <button 
               disabled={editPending}
-              className="p-2 rounded hover:bg-zinc-100 disabled:opacity-50 
+              className="rounded-lg p-2 hover:bg-zinc-100 disabled:opacity-50 
                          disabled:cursor-not-allowed transition-colors"
             >
               {editPending ? (
@@ -84,7 +84,7 @@ const Task = ({ task }: { task: Todo }) => {
           <button 
             onClick={handleDelete} 
             disabled={deletePending}
-            className="p-2 rounded hover:bg-red-100 disabled:opacity-50 
+            className="rounded-lg p-2 hover:bg-red-100 disabled:opacity-50 
                        disabled:cursor-not-allowed flex items-center gap-1 transition-colors"
           >
             {deletePending ? (

@@ -40,7 +40,7 @@ const initialState = { status: "", message: "" }
           type="text"
           placeholder='edit task here'
           minLength={3}
-          maxLength={25}
+          maxLength={50}
           required
           name="edit task"
           defaultValue={task.content}
